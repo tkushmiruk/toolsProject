@@ -25,7 +25,7 @@ public class RegistrationController {
     @PostMapping("registration")
     public String registrate(@RequestParam String username, @RequestParam String password) {
         boolean isRegistered = registrationService.registrate(username, password);
-        System.out.println(isRegistered);
+
         if (isRegistered) {
             return "greeting";
         }

@@ -19,7 +19,7 @@ public class RegistrationServiceImpl implements RegistrationService {
 
     @Autowired
     public RegistrationServiceImpl(UserRepository userRepository, RegistrationValidator registrationValidator,
-    PasswordEncoder passwordEncoder) {
+                                   PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.registrationValidator = registrationValidator;
         this.passwordEncoder = passwordEncoder;

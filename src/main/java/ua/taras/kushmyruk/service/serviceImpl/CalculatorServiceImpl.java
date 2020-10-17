@@ -39,25 +39,18 @@ public class CalculatorServiceImpl implements CalculatorService {
 
         for (int i = 0; i < symbolsList.size(); i++) {
             if (symbolsList.get(i).equals("*") || symbolsList.get(i).equals("/")) {
-                System.out.println("for cycle");
-                System.out.println(numbersList.get(i));
-                System.out.println(numbersList.get(i + 1));
                 numbersList.add(i, mathMethodFirstPriority
                         (numbersList.get(i), numbersList.get(i + 1), symbolsList.get(i)));
-                numbersList.remove(i+ 1);
+                numbersList.remove(i + 1);
                 numbersList.remove(i + 1);
                 symbolsList.remove(i);
                 i--;
             }
         }
-        System.out.println(numbersList.size());
-        System.out.println(symbolsList.size());
         int result = numbersList.get(0);
-        System.out.println(result);
         symbolsList = deleteFirstPrioritySymbols(symbolsList);
         for (int i = 0; i < symbolsList.size(); i++) {
-            System.out.println( "for " + result);
-            result = mathMethodSecondPriority(result, numbersList.get(i+1), symbolsList.get(i));
+            result = mathMethodSecondPriority(result, numbersList.get(i + 1), symbolsList.get(i));
         }
 
         return result;
@@ -111,9 +104,10 @@ public class CalculatorServiceImpl implements CalculatorService {
         }
         return null;
     }
-    public List<String> deleteFirstPrioritySymbols(List<String> symbolsList){
-        for(int i = 0; i< symbolsList.size(); i++){
-            if(symbolsList.get(i).equals("*") && symbolsList.get(i).equals("/")){
+
+    public List<String> deleteFirstPrioritySymbols(List<String> symbolsList) {
+        for (int i = 0; i < symbolsList.size(); i++) {
+            if (symbolsList.get(i).equals("*") && symbolsList.get(i).equals("/")) {
                 symbolsList.remove(i);
                 i--;
             }

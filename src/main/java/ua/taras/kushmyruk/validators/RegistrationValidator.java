@@ -8,14 +8,15 @@ import ua.taras.kushmyruk.domain.User;
 @Component
 public class RegistrationValidator {
     UserRepository userRepository;
+
     @Autowired
     public RegistrationValidator(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
 
-    public boolean isUserExist( String username){
-     User userFromBd = userRepository.findByUsername(username);
-     return userFromBd == null? true : false;
+    public boolean isUserExist(String username) {
+        User userFromBd = userRepository.findByUsername(username);
+        return userFromBd == null ? true : false;
     }
 }
